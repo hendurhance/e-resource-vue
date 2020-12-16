@@ -1,21 +1,14 @@
 <template>
-  <ul>
-    <elearning-resources 
-    v-for="res in storedResources" 
-    :key="res.id" 
-    :title="res.title"
-    :description="res.description"
-    :link="res.link"
-    ></elearning-resources>
-  </ul>
+  <stored-resources :eresources="storedResources"></stored-resources>
 </template>
 
 <script>
-import eLearningResouces from './components/elearning-resources/eResourceItem.vue'
+import StoredResources from './components/elearning-resources/StoredResources.vue'
+
 
 export default {
   components: {
-    'elearning-resources': eLearningResouces
+    'stored-resources': StoredResources
   },
   data(){
     return{
@@ -43,5 +36,13 @@ export default {
   box-sizing: border-box;
 }
 
+html {
+  font-family: sans-serif;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
 
 </style>
