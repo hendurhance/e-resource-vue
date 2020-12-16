@@ -1,14 +1,18 @@
 <template>
+ <div>
+  <the-header title="eLearning Resource"></the-header>
   <stored-resources :eresources="storedResources"></stored-resources>
+ </div>
 </template>
 
 <script>
 import StoredResources from './components/elearning-resources/StoredResources.vue'
-
+import TheHeader from './components/layout/TheHeader.vue'
 
 export default {
   components: {
-    'stored-resources': StoredResources
+    'stored-resources': StoredResources,
+    'the-header': TheHeader
   },
   data(){
     return{
