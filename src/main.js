@@ -5,7 +5,7 @@ import BaseButton from './components/UI/BaseButton.vue'
 
 Vue.config.productionTip = false
 Vue.component('base-card', BaseCard)
-Vue.components('base-button', BaseButton)
+Vue.component('base-button', BaseButton)
 new Vue({
   render: h => h(App),
 }).$mount('#app')
