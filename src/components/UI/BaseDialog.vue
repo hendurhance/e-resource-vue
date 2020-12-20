@@ -1,6 +1,7 @@
 <template>
-    <div @click="$emit('close')"></div>
-    <dialog open>
+    <teleport to="body">
+        <div @click="$emit('close')"></div>
+        <dialog open>
         <header>
             <slot name="header">
                 <h2> {{ title }} </h2>
@@ -15,6 +16,7 @@
             </slot>
         </menu>
     </dialog>
+    </teleport>
 </template>
 
 <script>
