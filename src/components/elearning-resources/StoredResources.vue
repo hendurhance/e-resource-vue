@@ -14,7 +14,7 @@
 import eLearningResouces from './eResourceItem.vue'
 
 export default {
-    props: ['eresources'],
+    inject: ['eresources'],
     components: {
         'elearning-resources': eLearningResouces
     }
