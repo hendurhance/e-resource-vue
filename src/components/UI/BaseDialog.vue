@@ -1,0 +1,86 @@
+<template>
+    <div @click="$emit('close')"></div>
+    <dialog open>
+        <header>
+            <slot name="header">
+                <h2> {{ title }} </h2>
+            </slot>
+        </header>
+        <section>
+            <slot></slot>
+        </section>
+        <menu>
+            <slot name="actions">
+                <base-button @click="$emit('close')">Close</base-button>
+            </slot>
+        </menu>
+    </dialog>
+</template>
+
+<script>
+export default {
+    props: {
+        title: {
+           type: String,
+           required: false
+        }
+    },
+    emits: ['close']
+}
+</script>
+
+<style scoped>
+ div{
+     position: fixed;
+     top: 0;
+     left: 0;
+     height: 100vh;
+     width: 100%;
+     background: rgba(0, 0, 0, 0.65);
+     z-index: 10;
+ }
+
+ dialog{
+     position: fixed;
+     top: 20vh;
+     left: 10%;
+     width: 80%;
+     z-index: 100;
+     border-radius: 12px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.20);
+     padding: 0;
+     margin: 0;
+     overflow: hidden;
+     border: 0;
+ }
+
+ header{
+     background: #0967d2;
+     color: #fff;
+     width: 100%;
+     padding: 1rem;
+ }
+
+ header h2{
+     margin: 0;
+ }
+
+ section{
+     padding: 1rem;
+ }
+
+ menu{
+     padding: 1rem;
+     display: flex;
+     justify-content: flex-end;
+     margin: 0;
+ }
+
+ @media (min-width: 758px) {
+     dialog{
+         left: calc(50% - 20rem);
+         width: 40rem; 
+     }
+ }
+
+</style>

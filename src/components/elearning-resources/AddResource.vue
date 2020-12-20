@@ -1,4 +1,13 @@
 <template>
+    <base-dialog v-if="inputIsEmpty" title="Invalid Input" @close="closeDialog">
+     <template #default>
+       <p>Sorry, at least one input feild is empty</p>
+       <p>Kindly fill out the input feild</p>
+     </template>
+     <template #actions>
+       <base-button @click="closeDialog">Close</base-button>
+     </template>
+    </base-dialog>
     <base-card>
       <form @submit.prevent="submitInputs">
           <div class="form-control">
@@ -23,13 +32,31 @@
 <script>
 export default {
   inject: ['addResources'],
+  data(){
+    return{
+      inputIsEmpty: false,
+    }
+  },
   methods: {
     submitInputs(){
       const titleSubmit = this.$refs.titleInput.value;
       const descriptionSubmit = this.$refs.descriptionInput.value;
       const urlSubmit = this.$refs.urlInput.value;
       
+      // Check if input is empty
+      if(
+          titleSubmit.trim() === '' ||
+          descriptionSubmit.trim() === '' || 
+          urlSubmit.trim() === '')
+        {
+        this.inputIsEmpty = true;
+        return;
+      }
+
       this.addResources(titleSubmit, descriptionSubmit, urlSubmit)
+    },
+    closeDialog(){
+      this.inputIsEmpty = false;
     }
   }
 }

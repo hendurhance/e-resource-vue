@@ -3,6 +3,7 @@
     <elearning-resources 
         v-for="res in eresources" 
         :key="res.id" 
+        :id="res.id"
         :title="res.title"
         :description="res.description"
         :link="res.link"
