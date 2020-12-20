@@ -1,3 +1,50 @@
 <template>
-    <h2>Add Resource</h2>
+    <base-card>
+      <form>
+          <div class="form-control">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text">
+          </div>
+          <div class="form-control">
+            <label for="title">Description</label>
+            <textarea name="description" id="description" rows="3"></textarea>
+          </div>
+          <div class="form-control">
+            <label for="title">Link</label>
+            <input id="link" name="link" type="url">
+          </div>
+          <div>
+             <base-button type="submit">Add Resource</base-button>
+          </div>
+      </form>
+    </base-card>
 </template>
+
+
+<style scoped>
+label{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+input,
+textarea{
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: .15rem;
+    border: 1px solid #0e0e0e;
+}
+
+input:focus,
+textarea:focus{
+    outline: none;
+    border-color: #0c0c0c;
+    background-color: #fefefe;
+}
+
+.form-control{
+    margin: 1rem 0;
+}
+
+</style>

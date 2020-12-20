@@ -50,7 +50,7 @@ export default {
             return this.tabSelected === 'stored-resources' ? null : 'flat';
         },
         addResourceBtn(){
-            return this.tabSelected === 'add-resources' ? null : 'flat';
+            return this.tabSelected === 'add-resource' ? null : 'flat';
         }
     },
     methods: {
